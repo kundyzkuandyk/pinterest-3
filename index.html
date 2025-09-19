@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: grid;
+            grid-template-columns: 1fr 11fr;
+            gap: 50px;
+            padding-left: 80px;
+        }
+
+        .cont {
+            margin-right: 100px;
+            grid-column: 2/3;
+            display: grid;
+            place-content: center;
+            min-height: 100vh;
+            padding-top: 40px;
+        }
+
+        .left {
+            z-index: 30;
+            margin-left: 300px;
+            padding-top: 40px;
+            border: 1px solid rgb(184, 182, 182);
+            padding: 50px;
+            height: 2900px;
+            width: 120px;
+            grid-column: 1/2;
+            display: grid;
+            grid-template-rows: 11fr 1fr;
+            position: fixed;
+        }
+
+        .img {
+            margin-bottom: 140px;
+        }
+
+        .left img {
+            width: 120px;
+        }
+
+        .search {
+            width: 4700px;
+            height: 120px;
+            margin-bottom: 40px;
+            border-radius: 20px;
+            border: 0cap;
+            background-color: rgb(226, 225, 225);
+            font-size: 80px;
+            padding: 30px;
+            padding-left: 50px;
+        }
+
+        .search:hover {
+            border: 5px solid blue;
+            background-color: rgb(186, 184, 184);
+        }
+
+        .k {
+            background-color: green;
+            border-radius: 50%;
+            padding: 70px;
+            font-size: 50px;
+            color: white;
+            font-weight: 600;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .k:hover {
+            background-color: rgb(1, 100, 1);
+            border: 3px solid rgb(2, 2, 2);
+        }
+
+        .container {
+            z-index: 28;
+            margin-top: 600px;
+            display: grid;
+            width: 5000px;
+            height: 7000px;
+            grid-columns: repeat(4, 1fr);
+            grid-rows: repeat(10, 1fr);
+            overflow: hidden;
+            gap: 30px;
+        }
+
+        .top {
+            background-color: white;
+            margin-top: -47px;
+            padding: 120px;
+            position: fixed;
+            z-index: 29;
+        }
+
+        .box-1 {
+            background-color: rgb(206, 151, 79);
+            position: relative;
+            grid-column: 1/2;
+            grid-row: 1/2;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .box-2 {
+            background-color: rgb(19, 134, 59);
+            position: relative;
+            grid-column: 1/2;
+            grid-row: 2/4;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .box-3 {
+            background-color: rgb(125, 169, 71);
+            position: relative;
+            grid-column: 1/2;
+            grid-row: 4/6;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .box-4 {
+            background-color: rgb(208, 4, 4);
+            position: relative;
+            grid-column: 1/2;
+            grid-row: 6/8;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .box-5 {
+            background-color: rgb(215, 249, 250);
+            position: relative;
+            grid-column: 1/2;
+            grid-row: 8/10;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        /* .last-6th {
+            background-color: rgb(57, 85, 128);
+            position: relative;
+            grid-column: 1/2;
+            grid-row: 8 /9;
+            border-radius: 30px;
+            overflow: hidden;
+        } */
+
+        .box-6 {
+            background-color: rgb(35, 100, 197);
+            position: relative;
+            grid-column: 2/3;
+            grid-row: 1/3;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .box-7 {
+            background-color: antiquewhite;
+            position: relative;
+            grid-column: 2/3;
+            grid-row: 3/5;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .box-8 {
+            background-color: rgb(215, 15, 155);
+            position: relative;
+            grid-column: 2/3;
+            grid-row: 5/7;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .box-9 {
+            background-color: rgb(250, 215, 218);
+            position: relative;
+            grid-column: 2/3;
+            grid-row: 7/9;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .box-10 {
+            background-color: rgb(57, 9, 134);
+            position: relative;
+            grid-column: 2/3;
+            grid-row: 9/10;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .box-11 {
+            background-color: rgb(196, 190, 14);
+            position: relative;
+            grid-column: 3/4;
+            grid-row: 1/2;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .box-12 {
+            background-color: rgb(11, 197, 123);
+            position: relative;
+            grid-column: 3/4;
+            grid-row: 2/4;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .box-13 {
+            background-color: rgb(133, 32, 60);
+            position: relative;
+            grid-column: 3/4;
+            grid-row: 4/6;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .box-14 {
+            background-color: rgb(111, 170, 202);
+            position: relative;
+            grid-column: 3/4;
+            grid-row: 6/8;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .box-15 {
+            background-color: rgb(94, 253, 237);
+            position: relative;
+            grid-column: 3/4;
+            grid-row: 8/10;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        /* .last-16th {
+            background-color: rgb(59, 99, 73);
+            position: relative;
+            grid-column: 3/4;
+            grid-row: 8/9;
+            border-radius: 30px;
+            overflow: hidden;
+        } */
+
+        .box-16 {
+            background-color: rgb(59, 129, 86);
+            position: relative;
+            grid-column: 4/5;
+            grid-row: 1/3;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .box-17 {
+            background-color: rgb(209, 43, 107);
+            position: relative;
+            grid-column: 4/5;
+            grid-row: 3/5;
+            border-radius: 30px;
+            overflow: hidden;
+
+        }
+
+        .box-18 {
+            background-color: rgb(7, 37, 16);
+            position: relative;
+            grid-column: 4/5;
+            grid-row: 5/7;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .box-19 {
+            background-color: rgb(28, 141, 109);
+            position: relative;
+            grid-column: 4 /5;
+            grid-row: 7/9;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .box-20 {
+            background-color: rgb(212, 206, 26);
+            position: relative;
+            grid-column: 4/5;
+            grid-row: 9/10;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .save {
+            position: absolute;
+            z-index: 26;
+            margin-top: 20px;
+            margin-left: 800px;
+            background-color: brown;
+            color: white;
+            font-weight: 600;
+            font-size: 70px;
+            padding: 20px 90px;
+            border-radius: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            opacity: 0;
+        }
+
+        .save:hover {
+            background-color: rgb(124, 33, 33);
+        }
+
+        .box-1:hover .save {
+            opacity: 100%;
+        }
+
+        .box-2:hover .save {
+            opacity: 100%;
+        }
+
+        .box-3:hover .save {
+            opacity: 100%;
+        }
+
+        .box-4:hover .save {
+            opacity: 100%;
+        }
+
+        .box-5:hover .save {
+            opacity: 100%;
+        }
+
+        .box-6:hover .save {
+            opacity: 100%;
+        }
+
+        .box-7:hover .save {
+            opacity: 100%;
+        }
+
+        .box-8:hover .save {
+            opacity: 100%;
+        }
+
+        .box-9:hover .save {
+            opacity: 100%;
+        }
+
+        .box-10:hover .save {
+            opacity: 100%;
+        }
+
+        .box-11:hover .save {
+            opacity: 100%;
+        }
+
+        .box-12:hover .save {
+            opacity: 100%;
+        }
+
+        .box-13:hover .save {
+            opacity: 100%;
+        }
+
+        .box-14:hover .save {
+            opacity: 100%;
+        }
+
+        .box-15:hover .save {
+            opacity: 100%;
+        }
+
+        .box-16:hover .save {
+            opacity: 100%;
+        }
+
+        .box-17:hover .save {
+            opacity: 100%;
+        }
+
+        .box-18:hover .save {
+            opacity: 100%;
+        }
+
+        .box-19:hover .save {
+            opacity: 100%;
+        }
+
+        .box-20:hover .save {
+            opacity: 100%;
+        }
+
+        .last-16th:hover .save {
+            opacity: 100%;
+        }
+
+        .last-6th:hover .save {
+            opacity: 100%;
+        }
+
+        .box-1:hover .black {
+            opacity: .6;
+        }
+
+        .box-2:hover .black {
+            opacity: .6;
+        }
+
+        .box-3:hover .black {
+            opacity: .6;
+        }
+
+        .box-4:hover .black {
+            opacity: .6;
+        }
+
+        .box-5:hover .black {
+            opacity: .6;
+        }
+
+        .box-6:hover .black {
+            opacity: .6;
+        }
+
+        .box-7:hover .black {
+            opacity: .6;
+        }
+
+        .box-8:hover .black {
+            opacity: .6;
+        }
+
+        .box-9:hover .black {
+            opacity: .6;
+        }
+
+        .box-10:hover .black {
+            opacity: .6;
+        }
+
+        .box-11:hover .black {
+            opacity: .6;
+        }
+
+        .box-12:hover .black {
+            opacity: .6;
+        }
+
+        .box-13:hover .black {
+            opacity: .6;
+        }
+
+        .box-14:hover .black {
+            opacity: .6;
+        }
+
+        .box-15:hover .black {
+            opacity: .6;
+        }
+
+        .box-16:hover .black {
+            opacity: .6;
+        }
+
+        .box-17:hover .black {
+            opacity: .6;
+        }
+
+        .box-18:hover .black {
+            opacity: .6;
+        }
+
+        .box-19:hover .black {
+            opacity: .6;
+        }
+
+        .box-20:hover .black {
+            opacity: .6;
+        }
+
+        .last-16th:hover .black {
+            opacity: .6;
+        }
+
+        .last-6th:hover .black {
+            opacity: .6;
+        }
+
+        .black {
+            z-index: 25;
+            background-color: black;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="left">
+        <div class="top-left"> <img src="pin.webp" class="img"><br>
+            <img src="home.webp" class="img"><br>
+            <img src="plus.webp" class="img"><br>
+            <img src="bell.webp" class="img"><br>
+            <img src="chat.webp" class="img"><br>
+        </div>
+        <div class="bottom-left">
+            <img src="settings.webp">
+        </div>
+    </div>
+    <div class="cont">
+        <div class="top">
+            <input type="text" placeholder="Search" class="search">
+            <span class="k">K</span>
+        </div>
+        <div class="container">
+            <div class="box-1"><span class="save">Save</span><span class="black">black</span><img
+                    src="загруженное (1).jpg" width="100%" style="object-fit: cover;z-index: 1;"></div>
+            <div class="box-2"><span class="save">Save</span><span class="black">black</span><img
+                    src="загруженное (2).jpg" width="100%" style="object-fit: cover;z-index: 2;"></div>
+            <div class="box-3"><span class="save">Save</span><span class="black">black</span><img
+                    src="загруженное (3).jpg" width="100%" style="object-fit: cover;z-index: 3;"></div>
+            <div class="box-4"><span class="save">Save</span><span class="black">black</span><img
+                    src="загруженное (8).jpg" width="100%" style="object-fit: cover;z-index: 4;"></div>
+            <div class="box-5"><span class="save">Save</span><span class="black">black</span><img
+                    src="загруженное (9).jpg" width="100%" style="object-fit: cover;z-index: 5;"></div>
+            <!-- <div class="last-6th"> <span class="save">Save</span><span class="black">black</span><img
+                    src="загруженное (10).jpg" width="100%" style="object-fit: cover;z-index: 6;"></div> -->
+            <div class="box-6"> <span class="save">Save</span><span class="black">black</span><img
+                    src="загруженное (11).jpg" width="100%" style="object-fit: cover;z-index: 7;"></div>
+            <div class="box-7"> <span class="save">Save</span><span class="black">black</span><img
+                    src="загруженное (12).jpg" width="100%" style="object-fit: cover;z-index: 8;"></div>
+            <div class="box-8"><span class="save">Save</span><span class="black">black</span><img
+                    src="загруженное (13).jpg" width="100%" style="object-fit: cover;z-index: 9;"></div>
+            <div class="box-9"><span class="save">Save</span><span class="black">black</span><img
+                    src="загруженное (15).jpg" width="100%" style="object-fit: cover;z-index: 10;"></div>
+            <div class="box-10"><span class="save">Save</span><span class="black">black</span><img
+                    src="загруженное (16).jpg" width="100%" style="object-fit: cover;z-index: 11;"></div>
+            <div class="box-11"><span class="save">Save</span><span class="black">black</span><img
+                    src="загруженное (17).jpg" width="100%" style="object-fit: cover;z-index: 12;"></div>
+            <div class="box-12"><span class="save">Save</span><span class="black">black</span><img
+                    src="загруженное (9).jpg" width="100%" style="object-fit: cover;z-index: 13;"></div>
+            <div class="box-13"><span class="save">Save</span><span class="black">black</span><img
+                    src="загруженное (19).jpg" width="100%" style="object-fit: cover;z-index: 14;"></div>
+            <div class="box-14"><span class="save">Save</span><span class="black">black</span><img src="загруженное.jpg"
+                    width="100%" style="object-fit: cover;z-index: 15;"></div>
+            <div class="box-15"><span class="save">Save</span><span class="black">black</span><img
+                    src="Массаж лица гуаша_Guasha facial massage.jpg" width="100%" style="object-fit: cover;"></div>
+            <!-- <div class="last-16th"><span class="save">Save</span><span class="black">black</span><img
+                    src="Сохрани!!.jpg" width="100%" style="object-fit: cover;z-index: 16;"></div> -->
+            <div class="box-16"><span class="save">Save</span><span class="black">black</span><img
+                    src="Viral stories.jpg" width="100%" style="object-fit: cover;z-index: 17;"></div>
+            <div class="box-17"><span class="save">Save</span><span class="black">black</span><img src="soft🎀🩷.jpg"
+                    width="100%" style="object-fit: cover;z-index: 18;"></div>
+            <div class="box-18"><span class="save">Save</span><span class="black">black</span><img src="Peonies.jpg"
+                    width="100%" style="object-fit: cover;z-index: 19;"></div>
+            <div class="box-19"><span class="save">Save</span><span class="black">black</span><img
+                    src="pelis girls (1).jpg" width="100%" style="object-fit: cover;z-index: 20;"></div>
+            <div class="box-20"><span class="save">Save</span><span class="black">black</span><img
+                    src="загруженное (9).jpg" width="100%" style="object-fit: cover;z-index: 21;"></div>
+        </div>
+    </div>
+</body>
+
+</html>
